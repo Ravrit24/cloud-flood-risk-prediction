@@ -1,0 +1,119 @@
+{
+  "features": {
+    "Month": {
+      "label": "Month of Observation",
+      "unit": "Month (1-12)",
+      "min": 1,
+      "max": 12,
+      "default": 7,
+      "step": 1,
+      "description": "Calendar month (1 = Jan, ..., 7 = July monsoon peak, 12 = Dec)."
+    },
+    "Rainfall": {
+      "label": "Monthly Precipitation",
+      "unit": "mm",
+      "min": 0.0,
+      "max": 2500.0,
+      "default": 350.0,
+      "step": 5.0,
+      "description": "Total monthly rainfall recorded at the meteorological station."
+    },
+    "Relative_Humidity": {
+      "label": "Relative Humidity",
+      "unit": "%",
+      "min": 10.0,
+      "max": 100.0,
+      "default": 82.0,
+      "step": 1.0,
+      "description": "Average relative atmospheric humidity percentage."
+    },
+    "Cloud_Coverage": {
+      "label": "Cloud Coverage",
+      "unit": "Oktas (0-8)",
+      "min": 0.0,
+      "max": 8.0,
+      "default": 5.5,
+      "step": 0.1,
+      "description": "Cloud cover in eighths of the celestial dome (0 = clear sky, 8 = completely overcast)."
+    },
+    "Bright_Sunshine": {
+      "label": "Bright Sunshine Duration",
+      "unit": "Hours/day",
+      "min": 0.0,
+      "max": 14.0,
+      "default": 4.5,
+      "step": 0.1,
+      "description": "Daily average sunshine hours (decreases sharply during stormy or monsoon conditions)."
+    },
+    "ALT": {
+      "label": "Station Altitude / Elevation",
+      "unit": "Meters",
+      "min": 0.0,
+      "max": 500.0,
+      "default": 10.0,
+      "step": 1.0,
+      "description": "Topographical elevation above sea level (low-lying flatlands face higher inundation risk)."
+    },
+    "Wind_Speed": {
+      "label": "Average Wind Speed",
+      "unit": "m/s",
+      "min": 0.0,
+      "max": 35.0,
+      "default": 2.5,
+      "step": 0.1,
+      "description": "Average wind speed recorded at the monitoring station."
+    },
+    "Max_Temp": {
+      "label": "Maximum Monthly Temperature",
+      "unit": "\u00b0C",
+      "min": 15.0,
+      "max": 50.0,
+      "default": 33.5,
+      "step": 0.5,
+      "description": "Peak monthly recorded ambient temperature."
+    },
+    "Min_Temp": {
+      "label": "Minimum Monthly Temperature",
+      "unit": "\u00b0C",
+      "min": 0.0,
+      "max": 35.0,
+      "default": 24.5,
+      "step": 0.5,
+      "description": "Lowest monthly recorded ambient temperature."
+    }
+  },
+  "feature_order": [
+    "Month",
+    "Rainfall",
+    "Relative_Humidity",
+    "Cloud_Coverage",
+    "Bright_Sunshine",
+    "ALT",
+    "Wind_Speed",
+    "Max_Temp",
+    "Min_Temp"
+  ],
+  "risk_tiers": {
+    "Low": {
+      "min_prob": 0.0,
+      "max_prob": 0.25,
+      "color": "#10B981",
+      "badge": "LOW RISK (NORMAL)"
+    },
+    "Medium": {
+      "min_prob": 0.25,
+      "max_prob": 0.6,
+      "color": "#F59E0B",
+      "badge": "MEDIUM RISK (ADVISORY)"
+    },
+    "High": {
+      "min_prob": 0.6,
+      "max_prob": 1.0,
+      "color": "#EF4444",
+      "badge": "HIGH RISK (WARNING)"
+    }
+  },
+  "model_architecture": "Pipeline(ColumnTransformer(SimpleImputer, StandardScaler), RandomForestClassifier)",
+  "dataset_name": "Historical Flood & Meteorological Records (Gauhar et al., IEEE 2021)",
+  "disclaimer": "Educational statistical model for demonstration and coursework. Not certified for operational life-safety flood forecasting."
+}
